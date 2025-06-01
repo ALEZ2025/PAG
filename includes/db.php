@@ -1,8 +1,8 @@
 <?php
 $servidor = 'localhost';
-$usuario = 'root';
-$contraseña = 'alez1014@123'; // Cambia esto si tienes una contraseña
-$base_datos = 'chapin_donas';
+$usuario = 'tu usuario';
+$contraseña = 'tu contraseña'; 
+$base_datos = 'pag_cliente';
 
 $conexion = mysqli_connect($servidor, $usuario, $contraseña, $base_datos);
 
