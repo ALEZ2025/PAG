@@ -2,7 +2,7 @@
 $servidor = 'localhost';
 $usuario = 'tu usuario';
 $contraseña = 'tu contraseña'; 
-$base_datos = 'pag_cliente';
+$base_datos = 'pag_web';
 
 $conexion = mysqli_connect($servidor, $usuario, $contraseña, $base_datos);
 
