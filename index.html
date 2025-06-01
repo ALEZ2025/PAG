@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapin Donas - Donas Artesanales</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff9933;
+            --secondary-color: #ff6699;
+            --dark-color: #333333;
+            --light-color: #ffffff;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff8f0;
+        }
+        
+        .navbar {
+            background-color: var(--light-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand img {
+            height: 50px;
+        }
+
+        
+        .hero-section {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: "";
+            background-image: url('/api/placeholder/1200/300');
+            background-size: cover;
+            opacity: 0.15;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        
+        .product-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            margin-bottom: 25px;
+            background-color: var(--light-color);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #e88a20;
+            border-color: #e88a20;
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+        }
+        
+        .category-badge {
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+            font-size: 0.8rem;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 0;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 40px 0;
+        }
+        
+        .cart-icon {
+            position: relative;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo3.png" alt="Chapin Donas Logo" class="img-fluid">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="productos/index.php">Donas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Paquetes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cliente/contacto.php">Contacto</a>
+                    </li>
+                </ul>
+                <div class="ms-3 d-flex align-items-center">
+                    <a href="cliente/login.php" class="btn btn-outline-primary me-2">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="cliente/carrito.php" class="btn btn-outline-primary cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Deliciosas Donas Artesanales</h1>
+                    <p class="lead mb-4">Descubre el sabor auténtico de nuestras donas hechas a mano con ingredientes frescos y de calidad.</p>
+                    <div class="d-flex">
+                        <a href="/productos/index.php" class="btn btn-light btn-lg me-3">Ver Productos</a>
+                        <a href="#" class="btn btn-outline-light btn-lg">Ofertas Especiales</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="images/logo3.png" alt="Donas artesanales" class="img-fluid mt-4 mt-lg-0 rounded-3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorías -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Categorías Populares</h2>
+            <div class="row">
+                <div class="col-6 col-md-3 mb-4">
+                    <div class="card text-center h-100">
+                        <div class="Categorias">
+                        <img src="images/DonaAlmendra.jpeg" class="mx-auto my-3" style="width: 95%; height: 85%; border-radius: 10px;" alt="Clásicas">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Clásicas</h5>
+                            <a href="#" class="stretched-link"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 mb-4">
+                    <div class="card text-center h-100">
+                        <div class="Categorias">
+                        <img src="images/DonaOreo.jpeg" class="mx-auto my-3" style="width: 95%; height: 85%; border-radius: 10px;" alt="Rellenas">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Rellenas</h5>
+                            <a href="#" class="stretched-link"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 mb-4">
+                    <div class="card text-center h-100">
+                        <div class="Categorias">
+                        <img src="images/DonaFresaBanano.jpeg" class="mx-auto my-3" style="width: 95%; height: 85%; border-radius: 10px;" alt="Especiales">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Especiales</h5>
+                            <a href="#" class="stretched-link"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 mb-4">
+                    <div class="card text-center h-100">
+                        <img src="images/DonaNutella.jpeg" class="mx-auto my-3" style="width: 95%; height: 85%; border-radius: 10px;" alt="Mini Donas">
+                        <div class="card-body">
+                            <h5 class="card-title">Mini Donas</h5>
+                            <a href="#" class="stretched-link"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Destacados -->
+    <section class="py-5 bg-light" id="productos">
+        <div class="container">
+            <h2 class="text-center section-title">Donas Destacadas</h2>
+            <div class="row">
+                <!-- Producto 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('images/DonaAlmendra.jpeg')"></div>
+                        <div class="card-body">
+                            <span class="badge category-badge mb-2">Bestseller</span>
+                            <h5 class="card-title">Dona de Chocolate</h5>
+                            <p class="card-text text-muted">Deliciosa dona glaseada con chocolate premium.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold fs-5">Q25.00</span>
+                                <button class="btn btn-primary btn-sm"><i class="fas fa-shopping-cart me-1"></i> Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Producto 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('images/DonaOreo.jpeg')"></div>
+                        <div class="card-body">
+                            <span class="badge category-badge mb-2">Popular</span>
+                            <h5 class="card-title">Dona de Fresa</h5>
+                            <p class="card-text text-muted">Cubierta con glaseado de fresa natural y sprinkles.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold fs-5">Q22.00</span>
+                                <button class="btn btn-primary btn-sm"><i class="fas fa-shopping-cart me-1"></i> Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Producto 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('images/DonaFresaBanano.jpeg')"></div>
+                        <div class="card-body">
+                            <span class="badge category-badge mb-2">Rellena</span>
+                            <h5 class="card-title">Dona de Nutella</h5>
+                            <p class="card-text text-muted">Rellena con Nutella y cubierta con azúcar glass.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold fs-5">Q28.00</span>
+                                <button class="btn btn-primary btn-sm"><i class="fas fa-shopping-cart me-1"></i> Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Producto 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('images/DonaNutella.jpeg')"></div>
+                        <div class="card-body">
+                            <span class="badge category-badge mb-2">Especial</span>
+                            <h5 class="card-title">Dona de Maple Bacon</h5>
+                            <p class="card-text text-muted">Glaseado de maple con trozos de tocino caramelizado.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold fs-5">Q32.00</span>
+                                <button class="btn btn-primary btn-sm"><i class="fas fa-shopping-cart me-1"></i> Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="productos/index.php" class="btn btn-lg btn-outline-primary">Ver Todas las Donas</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner de Promoción -->
+    <section class="py-5 bg-secondary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <h2 class="mb-3">¡Oferta Especial de Lanzamiento!</h2>
+                    <p class="lead mb-4">Compra una caja de 12 donas y recibe 2 donas gratis. Promoción válida por tiempo limitado.</p>
+                    <a href="#" class="btn btn-light">¡Aprovechar Ahora!</a>
+                </div>
+                <div class="col-md-5 text-center mt-4 mt-md-0">
+                    <img src="images/oferta.png" style="width: 450px; height: 200px; border-radius: 10px;" alt="Oferta especial" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Lo Que Dicen Nuestros Clientes</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 p-4">
+                        <div class="d-flex mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="card-text">"Las mejores donas que he probado en Guatemala. El sabor es increíble y siempre están frescas. Mi favorita es la de nutella."</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <img src="images/cliente.png" alt="Cliente" class="rounded-circle me-3" width="50">
+                            <div>
+                                <h6 class="mb-0">María Fernández</h6>
+                                <small class="text-muted">Cliente Frecuente</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 p-4">
+                        <div class="d-flex mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="card-text">"Pedí una caja para la oficina y todos quedaron encantados. El servicio de entrega es puntual y las donas llegaron perfectas. ¡Definitivamente volveré a comprar!"</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <img src="images/cliente.png" alt="Cliente" class="rounded-circle me-3" width="50">
+                            <div>
+                                <h6 class="mb-0">Carlos Mendoza</h6>
+                                <small class="text-muted">Cliente Corporativo</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 p-4">
+                        <div class="d-flex mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star-half-alt text-warning"></i>
+                        </div>
+                        <p class="card-text">"La variedad de sabores es impresionante. Siempre encuentro algo nuevo para probar. Las donas son perfectas para cualquier ocasión especial."</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <img src="images/cliente.png" alt="Cliente" class="rounded-circle me-3" width="50">
+                            <div>
+                                <h6 class="mb-0">Ana López</h6>
+                                <small class="text-muted">Cliente Habitual</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h3 class="mb-4">Suscríbete para Recibir Ofertas Exclusivas</h3>
+                    <p class="text-muted mb-4">Mantente informado sobre nuevos sabores, promociones especiales y descuentos exclusivos.</p>
+                    <form class="d-flex justify-content-center">
+                        <div class="input-group mb-3 w-75">
+                            <input type="email" class="form-control" placeholder="Tu correo electrónico" aria-label="Email">
+                            <button class="btn btn-primary" type="button">Suscribirse</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="images/logo3.png" style="width: 110px; height: 90px;" alt="Chapin Donas Logo" class="mb-4">
+                    <p>Donas artesanales hechas con amor y los mejores ingredientes. Sabor chapín en cada mordida.</p>
+                    <div class="d-flex mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-6 mb-4 mb-lg-0">
+                    <h5 class="mb-3">Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Inicio</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Productos</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Nosotros</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6 mb-4 mb-lg-0">
+                    <h5 class="mb-3">Categorías</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Clásicas</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Rellenas</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Especiales</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Mini Donas</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="mb-3">Contáctanos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Zona 10, Ciudad de Guatemala</li>
+                        <li class="mb-2"><i class="fas fa-phone-alt me-2"></i> (502) 2222-3333</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@chapindonas.com</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i> Lun - Sáb: 8:00 AM - 8:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4 bg-light">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 Chapin Donas. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                    <a href="#" class="text-white text-decoration-none me-3">Términos y Condiciones</a>
+                    <a href="#" class="text-white text-decoration-none">Política de Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Script personalizado -->
+    <script>
+        // Funcionalidad básica para el carrito
+        document.addEventListener('DOMContentLoaded', function() {
+            // Botones de añadir al carrito
+            const addToCartButtons = document.querySelectorAll('.btn-primary');
+            let cartCount = 0;
+            const cartCountElement = document.querySelector('.cart-count');
+            
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    cartCount++;
+                    cartCountElement.textContent = cartCount;
+                    
+                    // Animación simple
+                    button.innerHTML = '<i class="fas fa-check me-1"></i> Añadido';
+                    button.classList.remove('btn-primary');
+                    button.classList.add('btn-success');
+                    
+                    setTimeout(() => {
+                        button.innerHTML = '<i class="fas fa-shopping-cart me-1"></i> Añadir';
+                        button.classList.remove('btn-success');
+                        button.classList.add('btn-primary');
+                    }, 1500);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
